@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Brightwheel Exercise</string>
+
+    <!-- Loading content -->
+    <string name="loading_contributor">Loading contributor</string>
+
+    <!-- Content description -->
+    <string name="contentDescription_github">Github</string>
+    <string name="contentDescription_stars">Stars</string>
+    <string name="contentDescription_topContributor">Top contributor</string>
 </resources>

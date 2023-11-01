@@ -28,7 +28,6 @@ fun FeedScreen(
             listState = listState,
             isLoading = onRepositories is DataState.UpdatingContent
         ) {
-            Log.d("FeedScreen", "Last reached!")
             mainViewModel.fetchNextRepositoryInformationContent()
         }
     }

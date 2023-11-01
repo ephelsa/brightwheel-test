@@ -5,5 +5,4 @@ package com.github.ephelsa.brightwheelexercise.domain
  */
 data class Contributor(
     val username: String,
-    val avatarUrl: String,
 )

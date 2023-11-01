@@ -12,8 +12,9 @@ interface GithubRepositoryService {
         @Query("per_page") contentPerPage: Int
     ): RepositoryContainerDTO
 
-    @GET("repos/{fullName}/contributors?per_page=1")
+    @GET("repos/{username}/{repo_name}/contributors?per_page=1")
     suspend fun topContributor(
-        @Path("fullName") fullName: String
-    )
+        @Path("username") username: String,
+        @Path("repo_name") repoName: String
+    ): List<ContributorDTO>
 }

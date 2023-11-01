@@ -33,7 +33,6 @@ internal class RepoInformationRepositoryFake(
         stars = (id * 1_000).toLong(),
         topContributor = if (withoutContributor) null else Contributor(
             username = "pepito",
-            avatarUrl = "https://placekitten.com/100/100"
         ),
     )
 }

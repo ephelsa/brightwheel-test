@@ -20,6 +20,10 @@ val Typography = Typography(
         fontWeight = FontWeight.Bold,
         fontSize = 18.sp
     ),
+    displaySmall = Typography().displaySmall.copy(
+        fontFamily = FontFamily.Monospace,
+        fontSize = 26.sp
+    )
     /* Other default text styles to override
     titleLarge = TextStyle(
         fontFamily = FontFamily.Default,

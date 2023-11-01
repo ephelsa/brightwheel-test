@@ -3,9 +3,14 @@
 
     <!-- Loading content -->
     <string name="loading_contributor">Loading contributor</string>
+    <string name="loading_fetchingRepositories">Fetching repositories...</string>
 
     <!-- Content description -->
     <string name="contentDescription_github">Github</string>
     <string name="contentDescription_stars">Stars</string>
     <string name="contentDescription_topContributor">Top contributor</string>
+
+    <!-- Error -->
+    <string name="error_emptyRepos">No repos to be shown :(</string>
+    <string name="error_unexpected">Honestly, I don\'t know now what happened.</string>
 </resources>

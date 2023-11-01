@@ -12,15 +12,13 @@ import com.github.ephelsa.brightwheelexercise.ui.theme.BrightwheelExerciseTheme
 fun FeedScreen(
     mainViewModel: MainViewModel
 ) {
-    val mData by mainViewModel.onRepositories.collectAsState()
+    val onRepositories by mainViewModel.onRepositories.collectAsState()
 
     LaunchedEffect(Unit) {
         mainViewModel.fetchRepositoryInformation()
     }
 
     BrightwheelExerciseTheme {
-        mData?.let {
-            FeedTemplate(it)
-        }
+        FeedTemplate(onRepositories)
     }
 }

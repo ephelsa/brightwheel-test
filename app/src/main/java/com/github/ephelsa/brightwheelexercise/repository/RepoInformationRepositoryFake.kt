@@ -28,9 +28,7 @@ internal class RepoInformationRepositoryFake(
     }
 
     private fun generateFakeData(id: Int) = RepositoryInformation(
-        id = id,
-        owner = "johndoe",
-        name = "loremipsum",
+        id = id.toLong(),
         fullName = "johndoe/loremipsum",
         stars = (id * 1_000).toLong(),
         topContributor = if (withoutContributor) null else Contributor(

@@ -7,5 +7,5 @@ import com.github.ephelsa.brightwheelexercise.di.DIModule
 
 internal inline fun <reified T : ViewModel> ComponentActivity.appViewModels(): Lazy<T> =
     viewModels {
-        DIModule.viewModelFactory()
+        DIModule.provideViewModelFactory()
     }

@@ -1,3 +1,5 @@
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -21,11 +23,29 @@ android {
     }
 
     buildTypes {
+        val localProperties = gradleLocalProperties(rootDir)
+
         release {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
+            )
+
+            buildConfigField("String", "BASE_URL", "\"https://api.github.com/\"")
+            buildConfigField(
+                "String",
+                "GH_API_KEY",
+                "\"${localProperties.getProperty("ghApiKey")}\""
+            )
+        }
+
+        debug {
+            buildConfigField("String", "BASE_URL", "\"https://api.github.com/\"")
+            buildConfigField(
+                "String",
+                "GH_API_KEY",
+                "\"${localProperties.getProperty("ghApiKey")}\""
             )
         }
     }
@@ -37,6 +57,7 @@ android {
         jvmTarget = "1.8"
     }
     buildFeatures {
+        buildConfig = true
         compose = true
     }
     composeOptions {
@@ -61,6 +82,9 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
 
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
     testImplementation("junit:junit:4.13.2")
 
 //    androidTestImplementation("androidx.test.ext:junit:1.1.5")
@@ -68,6 +92,6 @@ dependencies {
 //    androidTestImplementation(platform("androidx.compose:compose-bom:2023.03.00"))
 //    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
 
-//    debugImplementation("androidx.compose.ui:ui-tooling")
+    debugImplementation("androidx.compose.ui:ui-tooling")
 //    debugImplementation("androidx.compose.ui:ui-test-manifest")
 }

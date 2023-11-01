@@ -10,7 +10,7 @@ import kotlinx.coroutines.delay
 internal class RepoInformationRepositoryFake(
     private val failureException: Exception? = null,
     private val withoutContributor: Boolean = false,
-    private val totalPerPage: Int = 5,
+    private val totalPerPage: Int = 15,
     private val millisecondsDelay: Long = 0,
 ) : RepoInformationRepository {
 
@@ -21,7 +21,10 @@ internal class RepoInformationRepositoryFake(
             return Result.failure(failureException)
         }
 
-        return Result.success((1..totalPerPage).map(::generateFakeData))
+        val start = (page - 1) * totalPerPage + 1
+        val end = page * totalPerPage
+
+        return Result.success((start..end).map(::generateFakeData))
     }
 
     private fun generateFakeData(id: Int) = RepositoryInformation(

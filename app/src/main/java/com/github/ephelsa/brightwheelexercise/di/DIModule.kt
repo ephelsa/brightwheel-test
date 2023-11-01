@@ -22,5 +22,6 @@ internal object DIModule {
     /**
      * [RepoInformationRepository] dependency
      */
-    fun repoInformationRepository(): RepoInformationRepository = RepoInformationRepositoryFake()
+    fun repoInformationRepository(): RepoInformationRepository =
+        RepoInformationRepositoryFake(millisecondsDelay = 1_000)
 }

@@ -6,7 +6,6 @@ import androidx.activity.compose.setContent
 import com.github.ephelsa.brightwheelexercise.ui.screen.FeedScreen
 import com.github.ephelsa.brightwheelexercise.utils.appViewModels
 
-
 class MainActivity : ComponentActivity() {
 
     private val viewModel: MainViewModel by appViewModels()

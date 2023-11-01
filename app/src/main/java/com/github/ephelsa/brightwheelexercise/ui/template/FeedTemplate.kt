@@ -6,10 +6,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material.icons.filled.Warning
-import androidx.compose.material3.Divider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
@@ -22,28 +22,44 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.github.ephelsa.brightwheelexercise.DataState
 import com.github.ephelsa.brightwheelexercise.R
 import com.github.ephelsa.brightwheelexercise.domain.RepositoryInformation
 import com.github.ephelsa.brightwheelexercise.ui.component.RepositoryCardList
 import com.github.ephelsa.brightwheelexercise.ui.component.UnexpectedContent
 import com.github.ephelsa.brightwheelexercise.ui.theme.Space
+import com.github.ephelsa.brightwheelexercise.utils.DataState
+import com.github.ephelsa.brightwheelexercise.utils.ScopedCallback
+import kotlinx.coroutines.CoroutineScope
 
 @Composable
 fun FeedTemplate(
-    repositoriesInfoState: DataState<Result<List<RepositoryInformation>>>
+    repositoriesInfoState: DataState<Result<List<RepositoryInformation>>>,
+    listState: LazyListState,
+    isLoading: Boolean,
+    onLimitReached: ScopedCallback<CoroutineScope>,
 ) {
     when (repositoriesInfoState) {
-        is DataState.ContentReady -> FeedTemplateContentReady(repositoriesInfoState)
+        is DataState.ContentReady, is DataState.UpdatingContent -> FeedTemplateContentReady(
+            repositoriesInfoState
+        ) {
+            RepositoryCardList(
+                list = it,
+                listState = listState,
+                onLimitReached = onLimitReached,
+                isLoading = isLoading
+            )
+        }
+
         else -> FeedTemplateLoading()
     }
 }
 
 @Composable
 fun FeedTemplateContentReady(
-    repositoriesInfoState: DataState.ContentReady<Result<List<RepositoryInformation>>>
+    repositoriesInfoState: DataState<Result<List<RepositoryInformation>>>,
+    onSuccessComponent: @Composable (List<RepositoryInformation>) -> Unit,
 ) {
-    repositoriesInfoState.content.onSuccess {
+    repositoriesInfoState.contentReady!!.onSuccess {
         if (it.isEmpty()) {
             UnexpectedContent(
                 modifier = Modifier.fillMaxWidth(),
@@ -62,7 +78,7 @@ fun FeedTemplateContentReady(
                 )
             }
         } else {
-            RepositoryCardList(list = it)
+            onSuccessComponent(it)
         }
     }.onFailure {
         UnexpectedContent(

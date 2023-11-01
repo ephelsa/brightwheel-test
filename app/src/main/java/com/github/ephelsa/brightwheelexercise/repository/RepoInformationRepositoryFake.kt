@@ -21,7 +21,7 @@ internal class RepoInformationRepositoryFake(
             return Result.failure(failureException)
         }
 
-        return Result.success((0..totalPerPage).map(::generateFakeData))
+        return Result.success((1..totalPerPage).map(::generateFakeData))
     }
 
     private fun generateFakeData(id: Int) = RepositoryInformation(
@@ -29,6 +29,7 @@ internal class RepoInformationRepositoryFake(
         owner = "johndoe",
         name = "loremipsum",
         fullName = "johndoe/loremipsum",
+        stars = (id * 1_000).toLong(),
         topContributor = if (withoutContributor) null else Contributor(
             username = "pepito",
             avatarUrl = "https://placekitten.com/100/100"

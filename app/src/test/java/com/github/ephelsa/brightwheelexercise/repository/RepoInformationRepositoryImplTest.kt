@@ -22,6 +22,7 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import retrofit2.HttpException
 import retrofit2.Response
+import java.net.HttpURLConnection
 
 private val testException = TestException()
 private val testRepoInfoList = listOf(
@@ -69,7 +70,7 @@ class RepoInformationRepositoryImplTest {
             coEvery {
                 mockRemoteRepoInfoDatasource.fetchTopRepositoryContributor(any())
             } throws HttpException(
-                Response.error<Any>(403, ResponseBody.create(null, ""))
+                Response.error<Any>(HttpURLConnection.HTTP_FORBIDDEN, ResponseBody.create(null, ""))
             )
 
             // When

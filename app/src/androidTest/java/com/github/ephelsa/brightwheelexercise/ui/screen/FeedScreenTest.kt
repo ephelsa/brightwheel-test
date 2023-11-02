@@ -13,7 +13,7 @@ import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.performScrollToIndex
 import androidx.lifecycle.viewmodel.viewModelFactory
 import androidx.test.ext.junit.rules.ActivityScenarioRule
-import com.github.ephelsa.brightwheelexercise.MainViewModel
+import com.github.ephelsa.brightwheelexercise.ui.activity.MainViewModel
 import com.github.ephelsa.brightwheelexercise.repository.RepoInformationRepository
 import com.github.ephelsa.brightwheelexercise.repository.RepoInformationRepositoryFake
 import org.junit.Rule

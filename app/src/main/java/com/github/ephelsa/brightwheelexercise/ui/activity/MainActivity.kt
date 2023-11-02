@@ -1,4 +1,4 @@
-package com.github.ephelsa.brightwheelexercise
+package com.github.ephelsa.brightwheelexercise.ui.activity
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

@@ -1,9 +1,11 @@
 @file:Suppress("INLINE_FROM_HIGHER_PLATFORM")
 
-package com.github.ephelsa.brightwheelexercise
+package com.github.ephelsa.brightwheelexercise.ui.activity
 
 import app.cash.turbine.turbineScope
 import com.github.ephelsa.brightwheelexercise.repository.RepoInformationRepositoryFake
+import com.github.ephelsa.brightwheelexercise.ui.activity.INITIAL_PAGE
+import com.github.ephelsa.brightwheelexercise.ui.activity.MainViewModel
 import com.github.ephelsa.brightwheelexercise.utils.DataState
 import com.github.ephelsa.brightwheelexercise.utils.ResultListOfRepositoryInformation
 import io.kotest.matchers.should

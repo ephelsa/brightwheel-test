@@ -24,7 +24,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.github.ephelsa.brightwheelexercise.R
-import com.github.ephelsa.brightwheelexercise.domain.RepositoryInformation
+import com.github.ephelsa.brightwheelexercise.model.RepositoryInformation
 import com.github.ephelsa.brightwheelexercise.ui.component.RepositoryCardList
 import com.github.ephelsa.brightwheelexercise.ui.component.UnexpectedContent
 import com.github.ephelsa.brightwheelexercise.ui.theme.Space

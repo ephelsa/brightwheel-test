@@ -1,12 +1,11 @@
 package com.github.ephelsa.brightwheelexercise.ui.screen
 
-import android.util.Log
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import com.github.ephelsa.brightwheelexercise.MainViewModel
+import com.github.ephelsa.brightwheelexercise.ui.activity.MainViewModel
 import com.github.ephelsa.brightwheelexercise.ui.template.FeedTemplate
 import com.github.ephelsa.brightwheelexercise.ui.theme.BrightwheelExerciseTheme
 import com.github.ephelsa.brightwheelexercise.utils.DataState

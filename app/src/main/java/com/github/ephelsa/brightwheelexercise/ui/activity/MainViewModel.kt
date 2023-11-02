@@ -1,4 +1,4 @@
-package com.github.ephelsa.brightwheelexercise
+package com.github.ephelsa.brightwheelexercise.ui.activity
 
 import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.ViewModel

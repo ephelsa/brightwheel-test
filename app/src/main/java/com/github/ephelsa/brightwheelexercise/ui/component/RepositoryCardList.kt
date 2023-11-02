@@ -14,7 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.testTag
-import com.github.ephelsa.brightwheelexercise.domain.RepositoryInformation
+import com.github.ephelsa.brightwheelexercise.model.RepositoryInformation
 import com.github.ephelsa.brightwheelexercise.ui.theme.Space
 import com.github.ephelsa.brightwheelexercise.utils.ScopedCallback
 import com.github.ephelsa.brightwheelexercise.utils.lastVisibleIndex

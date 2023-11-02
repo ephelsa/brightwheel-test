@@ -1,20 +1,20 @@
 package com.github.ephelsa.brightwheelexercise.remote
 
-import com.github.ephelsa.brightwheelexercise.domain.DomainMapper
-import com.github.ephelsa.brightwheelexercise.domain.RepositoryInformation
+import com.github.ephelsa.brightwheelexercise.model.ModelMapper
+import com.github.ephelsa.brightwheelexercise.model.RepositoryInformation
 import com.google.gson.annotations.SerializedName
 
 data class RepositoryContainerDTO(
     val items: List<RepositoryDTO>,
-) : DomainMapper<List<RepositoryInformation>> {
+) : ModelMapper<List<RepositoryInformation>> {
 
     data class RepositoryDTO(
         val id: Long,
         @SerializedName("full_name") val fullName: String,
         @SerializedName("stargazers_count") val stars: Long,
-    ) : DomainMapper<RepositoryInformation> {
+    ) : ModelMapper<RepositoryInformation> {
 
-        override fun asDomain(): RepositoryInformation = RepositoryInformation(
+        override fun asModel(): RepositoryInformation = RepositoryInformation(
             id = id,
             fullName = fullName,
             stars = stars,
@@ -22,5 +22,5 @@ data class RepositoryContainerDTO(
         )
     }
 
-    override fun asDomain(): List<RepositoryInformation> = items.map(RepositoryDTO::asDomain)
+    override fun asModel(): List<RepositoryInformation> = items.map(RepositoryDTO::asModel)
 }

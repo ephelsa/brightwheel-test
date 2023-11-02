@@ -1,6 +1,6 @@
 package com.github.ephelsa.brightwheelexercise.utils
 
-import com.github.ephelsa.brightwheelexercise.domain.RepositoryInformation
+import com.github.ephelsa.brightwheelexercise.model.RepositoryInformation
 
 // Callbacks
 typealias VoidCallback = () -> Unit

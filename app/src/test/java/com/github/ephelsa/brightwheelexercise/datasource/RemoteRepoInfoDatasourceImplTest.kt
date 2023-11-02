@@ -3,7 +3,7 @@
 package com.github.ephelsa.brightwheelexercise.datasource
 
 import com.github.ephelsa.brightwheelexercise.di.DIModule
-import com.github.ephelsa.brightwheelexercise.domain.RepositoryInformation
+import com.github.ephelsa.brightwheelexercise.model.RepositoryInformation
 import com.github.ephelsa.brightwheelexercise.remote.GithubRepositoryService
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.collections.shouldHaveSize

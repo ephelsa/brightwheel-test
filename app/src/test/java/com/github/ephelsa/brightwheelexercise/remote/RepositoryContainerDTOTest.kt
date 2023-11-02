@@ -22,7 +22,7 @@ class RepositoryContainerDTOTest {
         )
 
         // When
-        val got = repositoryContainerDTO.asDomain()
+        val got = repositoryContainerDTO.asModel()
 
         // Then
         got shouldHaveSize 2

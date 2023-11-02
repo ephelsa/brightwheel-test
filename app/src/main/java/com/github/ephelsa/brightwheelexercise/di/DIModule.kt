@@ -2,7 +2,7 @@ package com.github.ephelsa.brightwheelexercise.di
 
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.github.ephelsa.brightwheelexercise.BuildConfig
-import com.github.ephelsa.brightwheelexercise.MainViewModel
+import com.github.ephelsa.brightwheelexercise.ui.activity.MainViewModel
 import com.github.ephelsa.brightwheelexercise.datasource.RemoteRepoInfoDatasource
 import com.github.ephelsa.brightwheelexercise.datasource.RemoteRepoInfoDatasourceImpl
 import com.github.ephelsa.brightwheelexercise.remote.GithubRepositoryService

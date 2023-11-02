@@ -3,8 +3,8 @@
 package com.github.ephelsa.brightwheelexercise.repository
 
 import com.github.ephelsa.brightwheelexercise.datasource.RemoteRepoInfoDatasource
-import com.github.ephelsa.brightwheelexercise.domain.Contributor
-import com.github.ephelsa.brightwheelexercise.domain.RepositoryInformation
+import com.github.ephelsa.brightwheelexercise.model.Contributor
+import com.github.ephelsa.brightwheelexercise.model.RepositoryInformation
 import com.github.ephelsa.brightwheelexercise.testutils.TestException
 import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.equals.shouldBeEqual

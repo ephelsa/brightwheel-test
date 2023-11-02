@@ -1,4 +1,4 @@
-package com.github.ephelsa.brightwheelexercise.domain
+package com.github.ephelsa.brightwheelexercise.model
 
 /**
  * Model to store information about a contributor.

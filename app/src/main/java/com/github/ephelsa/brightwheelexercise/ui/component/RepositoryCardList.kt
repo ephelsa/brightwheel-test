@@ -13,6 +13,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.testTag
 import com.github.ephelsa.brightwheelexercise.domain.RepositoryInformation
 import com.github.ephelsa.brightwheelexercise.ui.theme.Space
 import com.github.ephelsa.brightwheelexercise.utils.ScopedCallback
@@ -50,7 +51,7 @@ fun RepositoryCardList(
 
             if (isLoading) {
                 Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
-                    CircularProgressIndicator()
+                    CircularProgressIndicator(modifier = Modifier.testTag("ListLoader"))
                 }
             }
         }

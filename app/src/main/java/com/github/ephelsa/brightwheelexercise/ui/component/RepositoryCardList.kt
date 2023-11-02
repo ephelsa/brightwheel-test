@@ -5,7 +5,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListState
-import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Divider
 import androidx.compose.runtime.Composable
@@ -32,7 +32,7 @@ fun RepositoryCardList(
         state = listState,
         contentPadding = PaddingValues(horizontal = Space.Large, vertical = Space.Medium)
     ) {
-        itemsIndexed(list) { index, item ->
+        items(list) { item ->
             RepositoryCard(
                 fullName = item.fullName,
                 starCount = item.stars,

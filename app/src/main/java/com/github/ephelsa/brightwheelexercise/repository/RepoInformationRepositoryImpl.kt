@@ -1,6 +1,5 @@
 package com.github.ephelsa.brightwheelexercise.repository
 
-import android.util.Log
 import com.github.ephelsa.brightwheelexercise.datasource.RemoteRepoInfoDatasource
 import com.github.ephelsa.brightwheelexercise.domain.Contributor
 import com.github.ephelsa.brightwheelexercise.domain.RepositoryInformation
@@ -12,7 +11,6 @@ class RepoInformationRepositoryImpl(
 
     override suspend fun fetchRepositoriesByPages(page: Int): Result<List<RepositoryInformation>> {
         return try {
-            Log.d("PAGE ->", page.toString())
             val response = remoteDatasource.fetchReposInfoByPage(page)
 
             val mergedContributor = response.map {

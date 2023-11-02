@@ -23,7 +23,7 @@ You need to set the next properties into your `local.properties` file:
 
 ## Project definitions
 
-The architecture implemented is a MVVM with hexagonal layers.
+The architecture implemented is a MVI with hexagonal layers.
 
 The layer can only access to the others with less number:
 
@@ -35,11 +35,11 @@ The layer can only access to the others with less number:
 There is an exception for the `utils/` that can be shared between all the layers.
 
 The app is pretty small. But in this case in order to "show" there is a bit more
-of overarchitecture.
+of over-architecture.
 
 Basic states for the content: loading, success, error and empty.
 
-For development and testing purposes a `fake` definition of
+For development and testing purposes a `fake` implementation of
 `RepoInformationRepository` is available, and was used to build almost all the app.
 
 I know that I created a `DI` layer, buuut, I have to say that the current DI implemented
@@ -50,3 +50,6 @@ I found an edge case with the GH API with the `contributors` endpoint. If the re
 contains a lot of `contributors` you will get a message like: "Too much contributors to
 return in this endpoint", so, in case of these repositories, the top contributor keeps in
 loading state (yep, not error or empty, I noticed the error too late).
+
+The annotation `@file:Suppress("INLINE_FROM_HIGHER_PLATFORM")` is used in some tests due an IDE 
+reported issue in [YouTrack](https://youtrack.jetbrains.com/issue/KTIJ-18375/MPP-IDE-common-source-set-always-has-default-JVM-target#focus=Comments-27-8204064.0-0).

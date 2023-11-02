@@ -4,6 +4,7 @@ import com.github.ephelsa.brightwheelexercise.domain.Contributor
 import com.github.ephelsa.brightwheelexercise.domain.RepositoryInformation
 import com.github.ephelsa.brightwheelexercise.remote.ContributorDTO
 import com.github.ephelsa.brightwheelexercise.remote.GithubRepositoryService
+import com.github.ephelsa.brightwheelexercise.utils.Constants
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 
@@ -14,8 +15,10 @@ class RemoteRepoInfoDatasourceImpl(
 
     override suspend fun fetchReposInfoByPage(page: Int): List<RepositoryInformation> =
         withContext(dispatcher) {
-            // TODO: Move the constant
-            val response = ghRepositoryService.starredRepository(page = page, contentPerPage = 10)
+            val response = ghRepositoryService.starredRepository(
+                page = page,
+                contentPerPage = Constants.ContentPerPage
+            )
             response.asDomain()
         }
 

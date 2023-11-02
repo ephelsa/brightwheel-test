@@ -2,14 +2,14 @@ package com.github.ephelsa.brightwheelexercise.repository
 
 import com.github.ephelsa.brightwheelexercise.datasource.RemoteRepoInfoDatasource
 import com.github.ephelsa.brightwheelexercise.domain.Contributor
-import com.github.ephelsa.brightwheelexercise.domain.RepositoryInformation
+import com.github.ephelsa.brightwheelexercise.utils.ResultListOfRepositoryInformation
 import retrofit2.HttpException
 
 class RepoInformationRepositoryImpl(
     private val remoteDatasource: RemoteRepoInfoDatasource
 ) : RepoInformationRepository {
 
-    override suspend fun fetchRepositoriesByPages(page: Int): Result<List<RepositoryInformation>> {
+    override suspend fun fetchRepositoriesByPages(page: Int): ResultListOfRepositoryInformation {
         return try {
             val response = remoteDatasource.fetchReposInfoByPage(page)
 

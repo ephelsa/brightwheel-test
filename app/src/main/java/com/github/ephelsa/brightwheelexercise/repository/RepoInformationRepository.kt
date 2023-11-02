@@ -1,8 +1,7 @@
 package com.github.ephelsa.brightwheelexercise.repository
 
-import com.github.ephelsa.brightwheelexercise.domain.RepositoryInformation
-import kotlinx.coroutines.flow.Flow
+import com.github.ephelsa.brightwheelexercise.utils.ResultListOfRepositoryInformation
 
 interface RepoInformationRepository {
-    suspend fun fetchRepositoriesByPages(page: Int): Result<List<RepositoryInformation>>
+    suspend fun fetchRepositoriesByPages(page: Int): ResultListOfRepositoryInformation
 }

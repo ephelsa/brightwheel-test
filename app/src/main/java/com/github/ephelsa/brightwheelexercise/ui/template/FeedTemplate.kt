@@ -28,12 +28,13 @@ import com.github.ephelsa.brightwheelexercise.ui.component.RepositoryCardList
 import com.github.ephelsa.brightwheelexercise.ui.component.UnexpectedContent
 import com.github.ephelsa.brightwheelexercise.ui.theme.Space
 import com.github.ephelsa.brightwheelexercise.utils.DataState
+import com.github.ephelsa.brightwheelexercise.utils.ResultListOfRepositoryInformation
 import com.github.ephelsa.brightwheelexercise.utils.ScopedCallback
 import kotlinx.coroutines.CoroutineScope
 
 @Composable
 fun FeedTemplate(
-    repositoriesInfoState: DataState<Result<List<RepositoryInformation>>>,
+    repositoriesInfoState: DataState<ResultListOfRepositoryInformation>,
     listState: LazyListState,
     isLoading: Boolean,
     onLimitReached: ScopedCallback<CoroutineScope>,
@@ -56,7 +57,7 @@ fun FeedTemplate(
 
 @Composable
 fun FeedTemplateContentReady(
-    repositoriesInfoState: DataState<Result<List<RepositoryInformation>>>,
+    repositoriesInfoState: DataState<ResultListOfRepositoryInformation>,
     onSuccessComponent: @Composable (List<RepositoryInformation>) -> Unit,
 ) {
     repositoriesInfoState.contentReady!!.onSuccess {

@@ -2,6 +2,7 @@ package com.github.ephelsa.brightwheelexercise.repository
 
 import com.github.ephelsa.brightwheelexercise.domain.Contributor
 import com.github.ephelsa.brightwheelexercise.domain.RepositoryInformation
+import com.github.ephelsa.brightwheelexercise.utils.ResultListOfRepositoryInformation
 import kotlinx.coroutines.delay
 
 /**
@@ -14,7 +15,7 @@ internal class RepoInformationRepositoryFake(
     private val millisecondsDelay: Long = 0,
 ) : RepoInformationRepository {
 
-    override suspend fun fetchRepositoriesByPages(page: Int): Result<List<RepositoryInformation>> {
+    override suspend fun fetchRepositoriesByPages(page: Int): ResultListOfRepositoryInformation {
         delay(millisecondsDelay)
 
         if (failureException != null) {

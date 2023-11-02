@@ -1,15 +1,19 @@
 package com.github.ephelsa.brightwheelexercise
 
+import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.github.ephelsa.brightwheelexercise.domain.RepositoryInformation
 import com.github.ephelsa.brightwheelexercise.repository.RepoInformationRepository
 import com.github.ephelsa.brightwheelexercise.utils.DataState
+import com.github.ephelsa.brightwheelexercise.utils.ResultListOfRepositoryInformation
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 
-private const val INITIAL_PAGE = 1
-private const val INITIAL_NEXT_PAGE = 2
+@VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+const val INITIAL_PAGE = 1
+
+@VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+const val INITIAL_NEXT_PAGE = 2
 
 class MainViewModel(
     private val repoInformationRepository: RepoInformationRepository,
@@ -17,8 +21,9 @@ class MainViewModel(
 
     private var nextPage = INITIAL_NEXT_PAGE
     var onRepositories =
-        MutableStateFlow<DataState<Result<List<RepositoryInformation>>>>(DataState.Initialized())
-        private set
+        MutableStateFlow<DataState<ResultListOfRepositoryInformation>>(DataState.Initialized())
+        @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+        set
 
     fun fetchRepositoryInformation() = viewModelScope.launch {
         onRepositories.value = DataState.Loading()
@@ -34,7 +39,9 @@ class MainViewModel(
         nextPage++
     }
 
-    private fun mergeIncomingRepositories(incomingRepos: Result<List<RepositoryInformation>>): Result<List<RepositoryInformation>> {
+    private fun mergeIncomingRepositories(
+        incomingRepos: ResultListOfRepositoryInformation
+    ): ResultListOfRepositoryInformation {
         val currentData = onRepositories.value.contentReady
 
         if (incomingRepos.isFailure) {

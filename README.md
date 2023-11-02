@@ -2,7 +2,7 @@
 
 ![Initial loading](./images/initial_loading.png)
 
-![Feed loaded](./images/loaded.png.png)
+![Feed loaded](./images/loaded.png)
 
 ## How to make this run?
 

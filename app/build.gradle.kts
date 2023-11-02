@@ -32,7 +32,11 @@ android {
                 "proguard-rules.pro"
             )
 
-            buildConfigField("String", "BASE_URL", "\"https://api.github.com/\"")
+            buildConfigField(
+                "String",
+                "BASE_URL",
+                "\"${localProperties.getProperty("ghBaseUrl")}\""
+            )
             buildConfigField(
                 "String",
                 "GH_API_KEY",
@@ -41,7 +45,11 @@ android {
         }
 
         debug {
-            buildConfigField("String", "BASE_URL", "\"https://api.github.com/\"")
+            buildConfigField(
+                "String",
+                "BASE_URL",
+                "\"${localProperties.getProperty("ghBaseUrl")}\""
+            )
             buildConfigField(
                 "String",
                 "GH_API_KEY",
@@ -86,6 +94,8 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
     testImplementation("junit:junit:4.13.2")
+    testImplementation("io.mockk:mockk:1.13.8")
+    testImplementation("io.kotest:kotest-runner-junit5:5.7.1")
 
 //    androidTestImplementation("androidx.test.ext:junit:1.1.5")
 //    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")

@@ -103,6 +103,7 @@ dependencies {
     testImplementation("io.kotest:kotest-runner-junit5:5.7.1")
     testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
     testImplementation("com.squareup.okhttp3:mockwebserver:4.11.0")
+    testImplementation("app.cash.turbine:turbine:1.0.0")
 
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
 //    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
